@@ -30,3 +30,44 @@ if (form) {
     form.reset();
   });
 }
+// --- SLIDER ---
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+const dotsContainer = document.querySelector(".dots");
+
+let index = 0;
+
+// generate dots
+slides.forEach((_, i) => {
+  const dot = document.createElement("span");
+  if (i === 0) dot.classList.add("active");
+  dotsContainer.appendChild(dot);
+});
+
+const dots = dotsContainer.querySelectorAll("span");
+
+function showSlide(i) {
+  slides.forEach(sl => sl.classList.remove("active"));
+  dots.forEach(dot => dot.classList.remove("active"));
+
+  slides[i].classList.add("active");
+  dots[i].classList.add("active");
+}
+
+nextBtn.onclick = () => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+};
+
+prevBtn.onclick = () => {
+  index = (index - 1 + slides.length) % slides.length;
+  showSlide(index);
+};
+
+dots.forEach((dot, i) => {
+  dot.onclick = () => {
+    index = i;
+    showSlide(index);
+  };
+});
