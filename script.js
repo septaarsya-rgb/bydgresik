@@ -8,7 +8,7 @@ hambtn && hambtn.addEventListener('click', () => {
 });
 
 // WhatsApp quick link
-const phone = '6287736861540'; // Indonesia country code + number (remove leading 0)
+const phone = '62877736861540'; // Indonesia country code + number (remove leading 0)
 const whatsBtn = document.getElementById('whatsBtn');
 if (whatsBtn) {
   const text = encodeURIComponent('Halo, saya tertarik dengan promo BYD ATTO 1. Mohon info & simulasi kredit.');
