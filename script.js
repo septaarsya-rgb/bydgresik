@@ -1,0 +1,32 @@
+// script.js - interactions for BYD Gresik demo
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const hambtn = document.getElementById('hambtn');
+const mainNav = document.getElementById('mainNav');
+hambtn && hambtn.addEventListener('click', () => {
+  mainNav.style.display = mainNav.style.display === 'block' ? 'none' : 'block';
+});
+
+// WhatsApp quick link
+const phone = '62877736861540'; // Indonesia country code + number (remove leading 0)
+const whatsBtn = document.getElementById('whatsBtn');
+if (whatsBtn) {
+  const text = encodeURIComponent('Halo, saya tertarik dengan promo BYD ATTO 1. Mohon info & simulasi kredit.');
+  whatsBtn.href = `https://wa.me/${phone}?text=${text}`;
+}
+
+// Basic contact form handling (local demo)
+const form = document.getElementById('contactForm');
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phoneInput = document.getElementById('phone').value.trim();
+    if (!name || !phoneInput) {
+      document.getElementById('formMsg').textContent = 'Nama dan telepon harus diisi.';
+      return;
+    }
+    document.getElementById('formMsg').textContent = 'Terima kasih! Permintaan Anda telah terkirim. Sales akan menghubungi dalam 1x24 jam.';
+    form.reset();
+  });
+}
