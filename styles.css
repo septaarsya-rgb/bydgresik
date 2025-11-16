@@ -213,3 +213,24 @@ html {
 .dots .active {
   background: white;
 }
+/* DOT INDICATOR */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  background: #777;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.slider-dot.active {
+  background: #00e6a8;
+  transform: scale(1.3);
+}
