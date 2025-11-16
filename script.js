@@ -51,3 +51,24 @@ if (form) {
   background: #00e6a8;
   transform: scale(1.3);
 }
+// =========================
+// AUTOPLAY SLIDER FOR BYD
+// =========================
+
+const slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+
+// Set posisi awal
+slides.forEach((slide, i) => {
+  slide.style.transform = `translateX(${i * 100}%)`;
+});
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  slides.forEach((slide, i) => {
+    slide.style.transform = `translateX(${(i - currentIndex) * 100}%)`;
+  });
+}
+
+// Auto slide 2 detik
+setInterval(nextSlide, 2000);
