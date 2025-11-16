@@ -310,3 +310,116 @@ html {
 .btn-outline:hover {
   background: rgba(0, 230, 168, 0.15);
 }
+/* ============================
+   BYD PREMIUM PRODUCT SECTION
+   ============================ */
+
+/* Container rapi */
+.product-section .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Judul besar */
+.product-title {
+  text-align: center;
+  margin-bottom: 2.8rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+/* Grid rapi */
+.product-grid {
+  display: grid;
+  gap: 2.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/* Card styling */
+.product-card {
+  background: #0A0F14;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+  transition: all .25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+  border-color: rgba(0, 230, 168, 0.55);
+}
+
+/* Image */
+.product-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* Body */
+.product-body {
+  padding: 1.5rem;
+  color: white;
+}
+
+/* Nama mobil */
+.product-body h3 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: #ffffff;
+}
+
+/* Harga */
+.product-body .price {
+  color: #00e6a8;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0.4rem 0 0.9rem;
+}
+
+/* List Fitur */
+.product-body ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1.4rem;
+  color: #d6dce1;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* CTA Buttons */
+.btn-primary {
+  background: linear-gradient(90deg, #00e6a8, #6ee7ff);
+  color: #000;
+  padding: 0.7rem 1.3rem;
+  border-radius: 9px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  opacity: .88;
+}
+
+.btn-outline {
+  padding: 0.7rem 1.3rem;
+  border-radius: 9px;
+  border: 2px solid #00e6a8;
+  color: #00e6a8;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: .35s;
+}
+
+.btn-outline:hover {
+  background: rgba(0,230,168,0.2);
+}
