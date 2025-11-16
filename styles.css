@@ -213,3 +213,100 @@ html {
 .dots .active {
   background: white;
 }
+/* PRODUCT SECTION - PREMIUM BYD STYLE */
+.product-section {
+  padding: 3rem 0;
+}
+
+.product-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.product-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/* CARD STYLE */
+.product-card {
+  background: #0A0F14;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  transition: all .3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.55);
+  border-color: rgba(0, 230, 168, 0.5);
+}
+
+/* IMAGE */
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* CONTENT AREA */
+.product-body {
+  padding: 1.5rem;
+}
+
+.product-body h3 {
+  font-size: 1.4rem;
+  margin-bottom: .4rem;
+  font-weight: 700;
+}
+
+.product-body .price {
+  color: #00e6a8;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: .8rem;
+}
+
+/* Feature List */
+.product-body ul {
+  margin: 0 0 1.5rem;
+  padding-left: 1.2rem;
+  color: #b8c5d0;
+  line-height: 1.5;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: linear-gradient(90deg, #00e6a8, #6ee7ff);
+  color: #000;
+  border: none;
+  padding: .7rem 1.3rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  opacity: .9;
+}
+
+.btn-outline {
+  margin-left: .5rem;
+  padding: .7rem 1.3rem;
+  border-radius: 8px;
+  border: 2px solid #00e6a8;
+  color: #00e6a8;
+  text-decoration: none;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 230, 168, 0.15);
+}
