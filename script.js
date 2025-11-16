@@ -30,51 +30,24 @@ if (form) {
     form.reset();
   });
 }
-// --- SLIDER ---
-const slides = document.querySelectorAll(".slide");
-const nextBtn = document.querySelector(".next");
-const prevBtn = document.querySelector(".prev");
-const dotsContainer = document.querySelector(".dots");
-
-let index = 0;
-// AUTO SLIDE EVERY 2 SECONDS
-setInterval(() => {
-  index++;
-  if (index >= slides.length) {
-    index = 0;
-  }
-  slider.style.transform = `translateX(-${index * 100}%)`;
-}, 2000);
-// generate dots
-slides.forEach((_, i) => {
-  const dot = document.createElement("span");
-  if (i === 0) dot.classList.add("active");
-  dotsContainer.appendChild(dot);
-});
-
-const dots = dotsContainer.querySelectorAll("span");
-
-function showSlide(i) {
-  slides.forEach(sl => sl.classList.remove("active"));
-  dots.forEach(dot => dot.classList.remove("active"));
-
-  slides[i].classList.add("active");
-  dots[i].classList.add("active");
+/* DOT INDICATOR */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 8px;
 }
 
-nextBtn.onclick = () => {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-};
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  background: #777;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
 
-prevBtn.onclick = () => {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
-};
-
-dots.forEach((dot, i) => {
-  dot.onclick = () => {
-    index = i;
-    showSlide(index);
-  };
-});
+.slider-dot.active {
+  background: #00e6a8;
+  transform: scale(1.3);
+}
