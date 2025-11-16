@@ -30,45 +30,51 @@ if (form) {
     form.reset();
   });
 }
-/* DOT INDICATOR */
-.slider-dots {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  gap: 8px;
-}
+// --- SLIDER ---
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+const dotsContainer = document.querySelector(".dots");
 
-.slider-dot {
-  width: 10px;
-  height: 10px;
-  background: #777;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.slider-dot.active {
-  background: #00e6a8;
-  transform: scale(1.3);
-}
-// =========================
-// AUTOPLAY SLIDER FOR BYD
-// =========================
-
-const slides = document.querySelectorAll('.slide');
-let currentIndex = 0;
-
-// Set posisi awal
-slides.forEach((slide, i) => {
-  slide.style.transform = `translateX(${i * 100}%)`;
+let index = 0;
+// AUTO SLIDE EVERY 2 SECONDS
+setInterval(() => {
+  index++;
+  if (index >= slides.length) {
+    index = 0;
+  }
+  slider.style.transform = `translateX(-${index * 100}%)`;
+}, 2000);
+// generate dots
+slides.forEach((_, i) => {
+  const dot = document.createElement("span");
+  if (i === 0) dot.classList.add("active");
+  dotsContainer.appendChild(dot);
 });
 
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % slides.length;
-  slides.forEach((slide, i) => {
-    slide.style.transform = `translateX(${(i - currentIndex) * 100}%)`;
-  });
+const dots = dotsContainer.querySelectorAll("span");
+
+function showSlide(i) {
+  slides.forEach(sl => sl.classList.remove("active"));
+  dots.forEach(dot => dot.classList.remove("active"));
+
+  slides[i].classList.add("active");
+  dots[i].classList.add("active");
 }
 
-// Auto slide 2 detik
-setInterval(nextSlide, 2000);
+nextBtn.onclick = () => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+};
+
+prevBtn.onclick = () => {
+  index = (index - 1 + slides.length) % slides.length;
+  showSlide(index);
+};
+
+dots.forEach((dot, i) => {
+  dot.onclick = () => {
+    index = i;
+    showSlide(index);
+  };
+});
