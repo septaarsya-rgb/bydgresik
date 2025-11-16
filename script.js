@@ -11,7 +11,7 @@ hambtn && hambtn.addEventListener('click', () => {
 const phone = '6287736861540'; // Indonesia country code + number (remove leading 0)
 const whatsBtn = document.getElementById('whatsBtn');
 if (whatsBtn) {
-  const text = encodeURIComponent('Halo, saya tertarik dengan promo BYD ATTO 1. Mohon info & simulasi kredit.');
+  const text = encodeURIComponent('Halo, saya tertarik dengan Mobil BYD. Mohon info & simulasi kredit.');
   whatsBtn.href = `https://wa.me/${phone}?text=${text}`;
 }
 
@@ -30,51 +30,3 @@ if (form) {
     form.reset();
   });
 }
-// --- SLIDER ---
-const slides = document.querySelectorAll(".slide");
-const nextBtn = document.querySelector(".next");
-const prevBtn = document.querySelector(".prev");
-const dotsContainer = document.querySelector(".dots");
-
-let index = 0;
-// AUTO SLIDE EVERY 2 SECONDS
-setInterval(() => {
-  index++;
-  if (index >= slides.length) {
-    index = 0;
-  }
-  slider.style.transform = `translateX(-${index * 100}%)`;
-}, 2000);
-// generate dots
-slides.forEach((_, i) => {
-  const dot = document.createElement("span");
-  if (i === 0) dot.classList.add("active");
-  dotsContainer.appendChild(dot);
-});
-
-const dots = dotsContainer.querySelectorAll("span");
-
-function showSlide(i) {
-  slides.forEach(sl => sl.classList.remove("active"));
-  dots.forEach(dot => dot.classList.remove("active"));
-
-  slides[i].classList.add("active");
-  dots[i].classList.add("active");
-}
-
-nextBtn.onclick = () => {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-};
-
-prevBtn.onclick = () => {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
-};
-
-dots.forEach((dot, i) => {
-  dot.onclick = () => {
-    index = i;
-    showSlide(index);
-  };
-});
