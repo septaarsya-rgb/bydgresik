@@ -37,7 +37,14 @@ const prevBtn = document.querySelector(".prev");
 const dotsContainer = document.querySelector(".dots");
 
 let index = 0;
-
+// AUTO SLIDE EVERY 2 SECONDS
+setInterval(() => {
+  index++;
+  if (index >= slides.length) {
+    index = 0;
+  }
+  slider.style.transform = `translateX(-${index * 100}%)`;
+}, 2000);
 // generate dots
 slides.forEach((_, i) => {
   const dot = document.createElement("span");
